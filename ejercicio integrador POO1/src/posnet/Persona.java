@@ -1,22 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package posnet;
 
 /**
  *
- * @author 1daw
+ * 
  */
-class Persona {
+public class Persona {
+
     private String DNI;
     private String nombre;
     private String apellido;
     private String telefono;
     private String mail;
-    
-    
-    public Persona (String DNI, String nombre, String apellido, String telefono, String mail){
+
+    /**
+     * 
+     * @param DNI
+     * @param nombre
+     * @param apellido
+     * @param telefono
+     * @param mail 
+     */
+    public Persona(String DNI, String nombre, String apellido, String telefono, String mail) {
         this.DNI = DNI;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -24,7 +28,12 @@ class Persona {
         this.mail = mail;
     }
 
+    /**
+     * 
+     * @return String tiene nombreCompleto compuesto de nnombre más apellido
+     */
     public String nombreCompleto() {
         return nombre + " " + apellido;
     }
+
 }

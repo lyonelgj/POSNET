@@ -1,45 +1,71 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package posnet;
 
+
 /**
- *
+ * 
  * @author 1daw
  */
+
+
 public class TarjetaDeCredito {
-    private String entidadBancaria;
-    private String numero;
-    private double saldo;
-    private EntidadFincanciera entidadFinanciera;
-    private Persona titular;
-    boolean tieneSaldoDisponible;
 
-    public TarjetaDeCredito(String entidadBancaria, String numero, double saldo,Persona titular, EntidadFincanciera entidadFinanciera) {
-        this.entidadBancaria = entidadBancaria;
-        this.numero = numero;
-        this.saldo = saldo;
-        this.entidadFinanciera = entidadFinanciera;
-        this.titular = titular;
-        
-    }
-
-    @Override
-    public String toString() {
-        return "TarjetaDeCredito{" + "entidadBancaria=" + entidadBancaria + ", numero=" + numero + ", saldo=" + saldo + ", entidadFinanciera=" + entidadFinanciera + ", titular=" + titular + '}';
-    }
     
-    public boolean tieneSaldoDisponible (double montoFinal){
-        return saldo >= montoFinal;
+    private String entidadBancaria;
+    private String nroTarjeta;
+    private double saldo;
+    private EntidadFinanciera entidadFinanciera;
+    private Persona titular;
+
+    
+    /**
+     * 
+     * @param entidadBancaria
+     * @param nroTarjeta
+     * @param saldo
+     * @param titular
+     * @param entidadFinanciera 
+     */
+    public TarjetaDeCredito(String entidadBancaria, String nroTarjeta, int saldo, Persona titular, EntidadFinanciera entidadFinanciera) {
+        this.entidadBancaria = entidadBancaria;
+        this.nroTarjeta = nroTarjeta;
+        this.saldo = saldo;
+        this.titular = titular;
+        this.entidadFinanciera = entidadFinanciera;
     }
 
+    /**
+     * 
+     * @param monto
+     * @return boolean tiene saldo disponible 
+     */
+    public boolean tieneSaldoDisponible(double monto) {
+        return saldo >= monto;
+    }
+
+    /**
+     * 
+     * @param monto 
+     */
     public void descontar(double monto) {
         saldo = saldo - monto;
+        // saldo -= monto;
     }
 
-    public String nombreCompletoDelTitular() {
+    /**
+     * 
+     * @return String tiene titular nombre completo
+     */
+    public String nombreCompletoDeTitular() {
         return titular.nombreCompleto();
     }
-    
+
+    /**
+     * 
+     * @return String tiene TarjetaDeCredito que tiene entidadBancaria nroTarjeta saldo entidadFinanciera titular
+     */
+    @Override
+    public String toString() {
+        return "TarjetaDeCredito{" + "entidadBancaria=" + entidadBancaria + ", nroTarjeta=" + nroTarjeta + ", saldo=" + saldo + ", entidadFinanciera=" + entidadFinanciera + ", titular=" + titular + '}';
+    }
+
 }
